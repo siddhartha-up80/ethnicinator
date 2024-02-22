@@ -5,8 +5,6 @@ import { useShoppingCart } from "use-shopping-cart";
 import { urlFor } from "../lib/sanity";
 import { ProductCart } from "./AddToBag";
 
-
-
 export default function CheckoutNow({
   name,
   description,
@@ -17,10 +15,9 @@ export default function CheckoutNow({
 }: ProductCart) {
   const { checkoutSingleItem } = useShoppingCart();
 
-  function buyNow(priceId: string){
+  function buyNow(priceId: string) {
     checkoutSingleItem(priceId);
   }
-
 
   const product = {
     name: name,
@@ -34,10 +31,10 @@ export default function CheckoutNow({
   return (
     <Button
       onClick={() => {
-        buyNow(product.price_id)
+        buyNow(product.price_id);
       }}
     >
-      Checkout
+      Checkout Now
     </Button>
   );
 }
