@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@sanity/vision": "^3.29.1",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-slot": "^1.0.2",
     "@sanity/image-url": "^1.0.2",
@@ -23,7 +24,9 @@
     "stripe": "^14.17.0",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
-    "use-shopping-cart": "^3.2.0"
+    "sanity": "^3.29.1",
+    "use-shopping-cart": "^3.2.0",
+    "styled-components": "^6.0.7"
   },
   "devDependencies": {
     "@types/node": "^20",
