@@ -5,6 +5,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ShoppingBag } from "lucide-react";
 import { useShoppingCart } from "use-shopping-cart";
+import { MdOutlineAccountCircle } from "react-icons/md";
+import { UserButton, useAuth } from "@clerk/nextjs";
+import Image from "next/image";
 
 const links = [
   {
@@ -28,12 +31,23 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
 
-  const {handleCartClick} = useShoppingCart()
+  const { handleCartClick } = useShoppingCart();
+
+  const { userId } = useAuth();
 
   return (
-    <header className="mb-8 border-b">
-      <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
-        <Link href={`/`}>
+    <header className="shadow sticky top-0 bg-white z-50">
+      <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl h-12 md:h-20">
+        <Link href={`/`} className="flex items-center gap-3">
+          <div className="h-8 w-8 border-4 border-rose-700 bg-white flex ml-2 mt-2 mb-2">
+            <Image
+              height={50}
+              width={50}
+              className="h-full w-full bg-cover bg-center object-cover"
+              src="/images/logo.jpg"
+              alt=""
+            />
+          </div>
           <h1 className="text-2xl md:text-4xl font-bold">
             Ethnic <span className="text-primary">Inator</span>
           </h1>
@@ -60,17 +74,36 @@ export default function Navbar() {
             </div>
           ))}
         </nav>
-        <div className="flex divide-x border-r sm:border-l">
-          <Button
-            variant={"outline"}
+
+        <div className="flex gap-6 items-center">
+          {userId ? (
+            <UserButton
+              afterSignOutUrl="/"
+              appearance={{
+                elements: {
+                  avatarBox: {
+                    width: "2rem",
+                    height: "2rem",
+                  },
+                },
+              }}
+            />
+          ) : (
+            <Link className="flex gap-2" href={`/sign-in`}>
+              <MdOutlineAccountCircle className="text-2xl" />
+              <span className="font-semibold text-gray-800">Login</span>
+            </Link>
+          )}
+
+          <button
             onClick={() => handleCartClick()}
-            className="flex flex-col gap-y-1.5 h-12 w-12 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-none"
+            className="flex flex-row gap-x-2  w-12  sm:w-20  md:w-24 rounded-none"
           >
             <ShoppingBag />
-            <span className="hidden text-xs font-semibold text-gray-500 sm:block">
+            <span className="hidden font-semibold text-gray-800 sm:block">
               Cart
             </span>
-          </Button>
+          </button>
         </div>
       </div>
     </header>

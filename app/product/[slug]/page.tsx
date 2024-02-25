@@ -32,7 +32,7 @@ export default async function ProductPage({
 }) {
   const data: fullProduct = await getData(params.slug);
   return (
-    <div className="bg-white pb-5">
+    <div className="bg-white py-8">
       <div className="mx-auto max-w-screen-xl px-4 md:px-8">
         <div className="grid gap-8 md:grid-cols-2">
           <ImageGallery images={data.images} />
@@ -82,7 +82,7 @@ export default async function ProductPage({
                 key={data._id}
                 price_id={data.price_id}
               />
-              <Button variant={`secondary`}>
+              
                 <CheckoutNow
                   currency="INR"
                   description={data.description}
@@ -92,7 +92,7 @@ export default async function ProductPage({
                   key={data._id}
                   price_id={data.price_id}
                 />
-              </Button>
+             
             </div>
             <p className="mt-12 text-base text-gray-500 tracking-wider">
               {data.description}
