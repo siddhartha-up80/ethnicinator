@@ -10,7 +10,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EthnicInator India | Indian Ethnic Wear for men and women",
+  title: "EthnicInator India | Indian Ethnic Wear for men and women, Step into the elegance with ethnic inator",
   description:
     "Step into the Elegance with Ethnicinator, Ultimate destination for for luxurious indian fashion. We offer a wide range of Indian ethnic wear for men and women.",
 };
@@ -23,6 +23,10 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
+        <meta
+          name="google-site-verification"
+          content="wuKkVFD1dhs31EjQNk81yBbw-temshhMPPc8JGAUC94"
+        />
         <body className={inter.className}>
           <CartProvider>
             <Navbar />
