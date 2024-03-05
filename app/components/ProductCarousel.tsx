@@ -24,24 +24,22 @@ export default function ProductCarousel({ data }: any) {
   ));
 
   return (
-    <div>
-      <AliceCarousel
-        mouseTracking
-        items={items}
-        responsive={{
-          0: { items: 1 },
-          1024: { items: 8 },
-        }}
-        autoPlayInterval={2000}
-        autoPlayDirection="ltr"
-        autoPlay={true}
-        fadeOutAnimation={true}
-        mouseTrackingEnabled={true}
-        disableAutoPlayOnAction={true}
-        disableDotsControls
-        disableButtonsControls
-        infinite={true}
-      />
-    </div>
+    <AliceCarousel
+      mouseTracking
+      items={items}
+      responsive={{
+        0: { items: 1 },
+        1024: { items: 8 },
+      }}
+      autoPlayInterval={2000}
+      autoPlayDirection="ltr"
+      autoPlay={true}
+      fadeOutAnimation={true}
+      mouseTrackingEnabled={true}
+      disableAutoPlayOnAction={true}
+      disableDotsControls
+      disableButtonsControls
+      infinite={true}
+    />
   );
 }
