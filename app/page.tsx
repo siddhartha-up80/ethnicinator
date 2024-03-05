@@ -24,7 +24,7 @@ export default async function Home() {
   const data: images = await getData();
 
   return (
-    <main className="bg-white pb-6 sm:pb-8 lg:pb-12">
+    <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
       <Hero />
       <>
         <section className="text-gray-600 body-font lg:max-w-7xl mx-auto max-w-2xl">
@@ -40,8 +40,7 @@ export default async function Home() {
             </div>
             <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
               <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
-                Discover Timeless Elegance
-                in Authentic Indian Ethnic Wear
+                Discover Timeless Elegance in Authentic Indian Ethnic Wear
               </h1>
               <p className="mb-8 leading-relaxed">
                 Immerse yourself in the rich tapestry of Indian traditions with
@@ -62,10 +61,10 @@ export default async function Home() {
         </section>
       </>
 
-      <div>
+      {/* <div>
         <ProductCarousel data={data} />
-      </div>
+      </div> */}
       <Newest />
-    </main>
+    </div>
   );
 }
