@@ -61,9 +61,9 @@ export default async function Home() {
         </section>
       </>
 
-      {/* <div>
+      <div>
         <ProductCarousel data={data} />
-      </div> */}
+      </div>
       <Newest />
     </div>
   );
